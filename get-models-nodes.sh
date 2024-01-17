@@ -1,4 +1,4 @@
-#!/bin/false
+#!/bin/bash
 
 # This file will be sourced in init.sh
 
@@ -20,7 +20,7 @@ NODES=(
 
 CHECKPOINT_MODELS=(
     # "https://huggingface.co/runwayml/stable-diffusion-v1-5/resolve/main/v1-5-pruned-emaonly.ckpt"
-    “https://civitai-delivery-worker-prod.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com/282091/model/toonyouB6Rv7Kmidd3.htyT.safetensors?X-Amz-Expires=86400&response-content-disposition=attachment%3B%20filename%3D%22toonyou_beta6.safetensors%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e01358d793ad6966166af8b3064953ad/20240117/us-east-1/s3/aws4_request&X-Amz-Date=20240117T070402Z&X-Amz-SignedHeaders=host&X-Amz-Signature=bb873cdb352b649624b74d2ecc816f5297238423d4ed3b1f6cd9aedd4a48155d”
+    "https://civitai-delivery-worker-prod.5ac0637cfd0766c97916cefa3764fbdf.r2.cloudflarestorage.com/282091/model/toonyouB6Rv7Kmidd3.htyT.safetensors?X-Amz-Expires=86400&response-content-disposition=attachment%3B%20filename%3D%22toonyou_beta6.safetensors%22&X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Credential=e01358d793ad6966166af8b3064953ad/20240117/us-east-1/s3/aws4_request&X-Amz-Date=20240117T070402Z&X-Amz-SignedHeaders=host&X-Amz-Signature=bb873cdb352b649624b74d2ecc816f5297238423d4ed3b1f6cd9aedd4a48155d"
     #"https://huggingface.co/stabilityai/stable-diffusion-2-1/resolve/main/v2-1_768-ema-pruned.ckpt"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0/resolve/main/sd_xl_base_1.0.safetensors"
     #"https://huggingface.co/stabilityai/stable-diffusion-xl-refiner-1.0/resolve/main/sd_xl_refiner_1.0.safetensors"
@@ -76,10 +76,14 @@ IP_MODELS=(
 
 ANIMATE_DIFF_MODELS=(
     "https://huggingface.co/guoyww/animatediff/resolve/cd71ae134a27ec6008b968d6419952b0c0494cf2/v3_sd15_mm.ckpt"
-
 )
 
-ANIMATE_DIFF_MODELS_PATH="/opt/ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models"
+
+WORKSPACE="/workspace"
+
+ANIMATE_DIFF_MODELS_PATH="${WORKSPACE}/ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models"
+
+
 
 
 
@@ -93,25 +97,25 @@ function provisioning_start() {
     provisioning_print_header
     provisioning_get_nodes
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/ckpt" \
+        "${WORKSPACE}/ComfyUI/models/checkpoints" \
         "${CHECKPOINT_MODELS[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/lora" \
+        "${WORKSPACE}/ComfyUI/models/lora" \
         "${LORA_MODELS[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/controlnet" \
+        "${WORKSPACE}/ComfyUI/models/controlnet" \
         "${CONTROLNET_MODELS[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/vae" \
+        "${WORKSPACE}/ComfyUI/models/vae" \
         "${VAE_MODELS[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/esrgan" \
+        "${WORKSPACE}/ComfyUI/models/esrgan" \
         "${ESRGAN_MODELS[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/clip_vision" \
+        "${WORKSPACE}/ComfyUI/models/clip_vision" \
         "${CLIP_VISION[@]}"
     provisioning_get_models \
-        "${WORKSPACE}/storage/stable_diffusion/models/ipadapter" \
+        "${WORKSPACE}/ComfyUI/models/ipadapter" \
         "${IP_MODELS[@]}"
     provisioning_get_models \
         "${ANIMATE_DIFF_MODELS_PATH}" \
@@ -122,7 +126,7 @@ function provisioning_start() {
 function provisioning_get_nodes() {
     for repo in "${NODES[@]}"; do
         dir="${repo##*/}"
-        path="/opt/ComfyUI/custom_nodes/${dir}"
+        path="${WORKSPACE}/ComfyUI/custom_nodes/${dir}"
         requirements="${path}/requirements.txt"
         if [[ -d $path ]]; then
             if [[ ${AUTO_UPDATE,,} != "false" ]]; then
