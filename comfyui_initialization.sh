@@ -27,6 +27,8 @@ COMFYUI_ENV_DIR=${WORKSPACE}/${COMFYUI_ENV_NAME}
 DRIVE_DIR_NAME=MyGoogleDrive
 DRIVE_DIR=${WORKSPACE}/${DRIVE_DIR_NAME}
 
+# Download jupyter file for Run ComfyUI
+wget -P ${WORKSPACE} https://raw.githubusercontent.com/Jarvan2018/comfyui-provisioning-script/main/fast_comfyUI.ipynb
 
 # 获取脚本的路径
 CURRENT_DIR=$(dirname "$0")
