@@ -77,7 +77,7 @@ NODES=(
     "https://github.com/Kosinkadink/ComfyUI-VideoHelperSuite"
     "https://github.com/Fannovel16/comfyui_controlnet_aux"
     "https://github.com/ltdrdata/ComfyUI-Impact-Pack"
-    "https://github.com/twri/sdxl_prompt_styler"
+    "https://github.com/ZHO-ZHO-ZHO/sdxl_prompt_styler-Zh-Chinese"
     "https://github.com/pythongosssss/ComfyUI-WD14-Tagger"
     "https://github.com/spacepxl/ComfyUI-RAVE"
     "https://github.com/BlenderNeko/ComfyUI_Noise"
@@ -127,6 +127,8 @@ cd ${COMFYUI_DIR}/custom_nodes/ComfyUI-AnimateDiff-Evolved
 git checkout develop
 
 echo -e "\n${GREEN}success Swith ComfyUI-AnimateDiff-Evolved to develop branch !${NC}"
+
+#替换为中文
 
 
 

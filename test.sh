@@ -20,7 +20,10 @@ target_dir="/workspace/ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models"
 
 create_symlinks "$source_dir" "$target_dir"
 
-source_dir = '/workspace/MyGoogleDrive/models/ipadapter'
-target_dir = '/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models'
+source_dir="/workspace/MyGoogleDrive/models/ipadapter"
+target_dir="/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models"
 
 create_symlinks "$source_dir" "$target_dir"
+
+
+
