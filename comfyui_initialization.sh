@@ -40,7 +40,7 @@ git clone https://github.com/comfyanonymous/ComfyUI
 mkdir ${DRIVE_DIR_NAME}
 cd "$CURRENT_DIR"
 # cp extra_model_paths.yaml ${COMFYUI_DIR}
-wget -P ${COMFYUI_DIR}/extra_model_paths.yaml 
+wget -P ${COMFYUI_DIR} https://raw.githubusercontent.com/Jarvan2018/comfyui-provisioning-script/main/extra_model_paths.yaml
 
 # 创建虚拟环境安装依赖
 cd ${WORKSPACE}
