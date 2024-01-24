@@ -36,6 +36,8 @@ mkdir ${DRIVE_DIR_NAME}
 ## 使用gdown下载大文件
 gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O ${DRIVE_DIR} --folder
 
+# 直接使用终端下载命令如下：copy本地cookies.txt到服务器 ~/.cache/gdown/cookies.txt
+# gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O /workspace/MyGoogleDrive --folder
 
 
 # 获取脚本的路径
