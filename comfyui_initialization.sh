@@ -30,18 +30,22 @@ DRIVE_DIR=${WORKSPACE}/${DRIVE_DIR_NAME}
 # Download jupyter file for Run ComfyUI
 wget -P ${WORKSPACE} https://raw.githubusercontent.com/Jarvan2018/comfyui-provisioning-script/main/fast_comfyUI.ipynb
 
+# 下载大文件，网络测试太慢可以重新换实例
+cd ${WORKSPACE}
+mkdir ${DRIVE_DIR_NAME}
+## 使用gdown下载大文件
+gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O ${DRIVE_DIR} --folder
+
+
+
 # 获取脚本的路径
-CURRENT_DIR=$(dirname "$0")
+# CURRENT_DIR=$(dirname "$0")
+
+
 
 # 安装ComfyUI
 cd ${WORKSPACE}
 git clone https://github.com/comfyanonymous/ComfyUI
-
-
-# 配置
-mkdir ${DRIVE_DIR_NAME}
-cd "$CURRENT_DIR"
-# cp extra_model_paths.yaml ${COMFYUI_DIR}
 wget -P ${COMFYUI_DIR} https://raw.githubusercontent.com/Jarvan2018/comfyui-provisioning-script/main/extra_model_paths.yaml
 
 # 创建虚拟环境安装依赖
@@ -120,12 +124,7 @@ echo -e "\n${GREEN}Install Done!${NC}"
 cd ${COMFYUI_DIR}/custom_nodes/ComfyUI-AnimateDiff-Evolved
 git checkout develop
 
-
 echo -e "\n${GREEN}success Swith ComfyUI-AnimateDiff-Evolved to develop branch !${NC}"
-
-
-#使用gdown下载大文件
-gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O ${DRIVE_DIR} --folder
 
 
 
@@ -153,3 +152,5 @@ source_dir = '/workspace/MyGoogleDrive/models/ipadapter'
 target_dir = '/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models'
 
 create_symlinks "$source_dir" "$target_dir"
+
+echo -e "\n${GREEN}Respect Respect Respect !${NC}"
