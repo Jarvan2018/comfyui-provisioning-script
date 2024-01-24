@@ -125,7 +125,7 @@ echo -e "\n${GREEN}success Swith ComfyUI-AnimateDiff-Evolved to develop branch !
 
 
 #使用gdown下载大文件
-gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk -O ${DRIVE_DIR} --folder
+gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O ${DRIVE_DIR} --folder
 
 
 
