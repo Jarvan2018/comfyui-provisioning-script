@@ -13,10 +13,8 @@ echo "将自动安装一些custom_nodes和他们的依赖"
 echo "Will automatically install some custom_nodes and their dependencies"
 echo -e "${GREEN}===========================\n${NC}"
 
-pip install --upgrade pip
 
-# 安装 gdown
-pip install gdown
+
 
 
 ## 路径
@@ -30,20 +28,9 @@ DRIVE_DIR=${WORKSPACE}/${DRIVE_DIR_NAME}
 # Download jupyter file for Run ComfyUI
 wget -P ${WORKSPACE} https://raw.githubusercontent.com/Jarvan2018/comfyui-provisioning-script/main/fast_comfyUI.ipynb
 
-# 下载大文件，网络测试太慢可以重新换实例
+# 为Google Drive 创建文件夹
 cd ${WORKSPACE}
 mkdir ${DRIVE_DIR_NAME}
-## 使用gdown下载大文件
-gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O ${DRIVE_DIR} --folder
-
-# 直接使用终端下载命令如下：copy本地cookies.txt到服务器 ~/.cache/gdown/cookies.txt
-# gdown https://drive.google.com/drive/folders/1NQ_xIPqinODkddr6Qq2hClYgcTbK7sIk?usp=sharing -O /workspace/MyGoogleDrive --folder
-
-
-# 获取脚本的路径
-# CURRENT_DIR=$(dirname "$0")
-
-
 
 # 安装ComfyUI
 cd ${WORKSPACE}
@@ -55,6 +42,7 @@ cd ${WORKSPACE}
 python -m venv ${COMFYUI_ENV_NAME} --prompt ComfyUI
 source ${COMFYUI_ENV_DIR}/bin/activate
 cd ComfyUI
+pip install --upgrade pip
 pip install xformers!=0.0.18 -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu121 --extra-index-url https://download.pytorch.org/whl/cu118 --extra-index-url https://download.pytorch.org/whl/cu117
 
 
@@ -128,33 +116,4 @@ git checkout develop
 
 echo -e "\n${GREEN}success Swith ComfyUI-AnimateDiff-Evolved to develop branch !${NC}"
 
-#替换为中文
-
-
-
-create_symlinks() {
-    source_dir="$1"
-    target_dir="$2"
-
-    for file in "$source_dir"/*; do
-        file_name=$(basename "$file")
-        source_path="$source_dir/$file_name"
-        target_path="$target_dir/$file_name"
-        echo "Will create symlink: $target_path -> $source_path"
-        ln -s "$source_path" "$target_path"
-        echo "Created symlink: $target_path -> $source_path"
-    done
-}
-
-# 创建大文件的符号链接
-source_dir="/workspace/MyGoogleDrive/animatediff"
-target_dir="/workspace/ComfyUI/custom_nodes/ComfyUI-AnimateDiff-Evolved/models"
-
-create_symlinks "$source_dir" "$target_dir"
-
-source_dir="/workspace/MyGoogleDrive/models/ipadapter"
-target_dir="/workspace/ComfyUI/custom_nodes/ComfyUI_IPAdapter_plus/models"
-
-create_symlinks "$source_dir" "$target_dir"
-
-echo -e "\n${GREEN}Respect Respect Respect !${NC}"
+echo -e "\n${GREEN}Here we go, traveler!!${NC}"
