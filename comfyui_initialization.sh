@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# 测试 不会用tmux先关闭
+touch ~/.no_auto_tmux
+
 ## colors
 GREEN='\033[0;32m'
 BLUE='\033[0;34m'
