@@ -82,6 +82,7 @@ NODES=(
     "https://github.com/melMass/comfy_mtb"
     "https://github.com/theUpsider/ComfyUI-Logic"
     "https://github.com/Ttl/ComfyUi_NNLatentUpscale"
+    "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
 )
 
 
