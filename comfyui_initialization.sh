@@ -45,17 +45,17 @@ cd ${WORKSPACE}
 python -m venv ${COMFYUI_ENV_NAME} --prompt ComfyUI
 source ${COMFYUI_ENV_DIR}/bin/activate
 cd ComfyUI
-pip install --upgrade pip
+# pip install --upgrade pip
 # 不指定 --extra-index-url 试试
-pip install xformers!=0.0.18 -r requirements.txt 
-# pip install xformers!=0.0.18 -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu121 --extra-index-url https://download.pytorch.org/whl/cu118 --extra-index-url https://download.pytorch.org/whl/cu117
+# pip install xformers!=0.0.18 -r requirements.txt 
+pip install xformers!=0.0.18 -r requirements.txt --extra-index-url https://download.pytorch.org/whl/cu121 --extra-index-url https://download.pytorch.org/whl/cu118 --extra-index-url https://download.pytorch.org/whl/cu117
 
 
 # 可能需要安装 很多都依赖 
-sudo apt-get update
-sudo apt-get install -y libgl1-mesa-glx
-pip install numba
-pip install opencv-python
+# sudo apt-get update
+# sudo apt-get install -y libgl1-mesa-glx
+# pip install numba
+# pip install opencv-python
 
 
 
