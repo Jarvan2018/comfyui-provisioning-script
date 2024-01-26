@@ -40,6 +40,9 @@ cd ${WORKSPACE}
 git clone https://github.com/comfyanonymous/ComfyUI
 wget -P ${COMFYUI_DIR} https://raw.githubusercontent.com/Jarvan2018/comfyui-provisioning-script/main/extra_model_paths.yaml
 
+## ComfyUI-Manager
+cd ComfyUI/custom_nodes
+git clone https://github.com/ltdrdata/ComfyUI-Manager
 
 # 创建虚拟环境安装依赖
 cd ${WORKSPACE}
