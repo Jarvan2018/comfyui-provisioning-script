@@ -84,6 +84,7 @@ NODES=(
     "https://github.com/Ttl/ComfyUi_NNLatentUpscale"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/Fannovel16/ComfyUI-Video-Matting"
+    "https://github.com/meap158/ComfyUI-Background-Replacement"
 )
 
 
@@ -109,6 +110,10 @@ function provisioning_get_nodes() {
 }
 
 provisioning_get_nodes
+
+# FOR ComfyUI-Background-Replacement
+cd ${COMFYUI_DIR}
+pip install --upgrade transformers
 
 echo -e "\n${GREEN}Install Done!${NC}"
 
