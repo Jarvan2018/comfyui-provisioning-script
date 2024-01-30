@@ -89,6 +89,7 @@ NODES=(
     "https://github.com/bash-j/mikey_nodes"
     "https://github.com/giriss/comfy-image-saver"
     "https://github.com/zhongpei/Comfyui_image2prompt"
+    "https://github.com/crystian/ComfyUI-Crystools"
 )
 
 
