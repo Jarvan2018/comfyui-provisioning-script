@@ -84,6 +84,7 @@ NODES=(
     "https://github.com/Ttl/ComfyUi_NNLatentUpscale"
     "https://github.com/Suzie1/ComfyUI_Comfyroll_CustomNodes"
     "https://github.com/Fannovel16/ComfyUI-Video-Matting"
+    "https://github.com/Derfuu/Derfuu_ComfyUI_ModdedNodes"
     "https://github.com/meap158/ComfyUI-Background-Replacement"
 )
 
