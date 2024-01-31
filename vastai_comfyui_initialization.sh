@@ -88,8 +88,11 @@ NODES=(
     # "https://github.com/meap158/ComfyUI-Background-Replacement"
     "https://github.com/bash-j/mikey_nodes"
     "https://github.com/giriss/comfy-image-saver"
-    "https://github.com/zhongpei/Comfyui_image2prompt"
+    # "https://github.com/zhongpei/Comfyui_image2prompt"
     "https://github.com/crystian/ComfyUI-Crystools"
+    "https://github.com/pythongosssss/ComfyUI-Custom-Scripts"
+    "https://github.com/mcmonkeyprojects/sd-dynamic-thresholding"
+    "https://github.com/shiimizu/ComfyUI_smZNodes"
 )
 
 
@@ -119,10 +122,11 @@ provisioning_get_nodes
 # FOR ComfyUI-Background-Replacement
 cd ${COMFYUI_DIR}
 pip install --upgrade transformers
+pip install accelerate
 
 # FOR Comfyui-image2prompt
-export HF_ENDPOINT=https://hf-mirror.com
-huggingface-cli download --resume-download vikhyatk/moondream1 --local-dir custom_nodes/Comfyui-image2prompt/model
+# export HF_ENDPOINT=https://hf-mirror.com
+# huggingface-cli download --resume-download vikhyatk/moondream1 --local-dir custom_nodes/Comfyui_image2prompt/model
 
 
 echo -e "\n${GREEN}Install Done!${NC}"
